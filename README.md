@@ -1,5 +1,22 @@
 # API de cotacao
 
+## Como rodar
+
+1. Clone o projeto
+2. `mvn clean install`
+3. `java -jar target/cotacao-0.0.1-SNAPSHOT.jar`
+
+## Rotas
+
+- Detalhamento de moeda: `GET /moeda/{id}`
+- Listagem de moedas: `GET /moedas/`
+- Criação de moeda: `POST /moeda/`
+- Remoção de moeda: `DELETE /moeda/{id}`
+
+Coleção do insomnia disponível em: `cotacao_insomnia_collection.json`
+
+## Função das classes
+
 - `src/main/resources/application.properties`: configuração do servidor
 - `src/main/java/br/espm/guilherme/cotacao/MoedaTORequest.java`: TO signifca Transfer Object (ou DTO, Data  Transfer Object) para receber os dados de uma requisição
 - `src/main/java/br/espm/guilherme/cotacao/MoedaTOResponse.java`: TO signifca Transfer Object (ou DTO, Data  Transfer Object) para responsder dados requeridos para uma requisição
