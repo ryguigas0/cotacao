@@ -2,6 +2,7 @@ package br.espm.guilherme.cotacao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
@@ -28,5 +29,9 @@ public class MoedaService {
 
     public void delete(String id) {
         moedas.removeIf(moeda -> moeda.id().equals(id));
+    }
+
+    public Optional<MoedaTOResponse> find(String id) {
+        return moedas.stream().filter((moeda) -> moeda.id().equals(id)).findFirst();
     }
 }

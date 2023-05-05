@@ -9,8 +9,8 @@
 ## Rotas
 
 - Detalhamento de moeda: `GET /moeda/{id}`
-- Listagem de moedas: `GET /moedas/`
-- Criação de moeda: `POST /moeda/`
+- Listagem de moedas: `GET /moedas`
+- Criação de moeda: `POST /moeda`
 - Remoção de moeda: `DELETE /moeda/{id}`
 
 Coleção do insomnia disponível em: `cotacao_insomnia_collection.json`

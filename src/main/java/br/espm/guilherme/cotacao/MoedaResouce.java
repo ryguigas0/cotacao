@@ -1,6 +1,7 @@
 package br.espm.guilherme.cotacao;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,7 +26,16 @@ public class MoedaResouce {
 
     @GetMapping("/moeda/{id}")
     public ResponseEntity<?> getMoeda(@PathVariable("id") String id) {
-        return new ResponseEntity(null, HttpStatus.NOT_IMPLEMENTED);
+
+        try {
+            Optional<MoedaTOResponse> searchResult = moedaService.find(id);
+
+            MoedaTOResponse moeda = searchResult.orElseThrow();
+
+            return new ResponseEntity<MoedaTOResponse>(moeda, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
     }
 
     @PostMapping("/moeda")
@@ -34,7 +44,7 @@ public class MoedaResouce {
     }
 
     @DeleteMapping("/moedas/{id}")
-    public void deleteMoeda(@PathVariable("id") String id){
+    public void deleteMoeda(@PathVariable("id") String id) {
         moedaService.delete(id);
     }
 }
