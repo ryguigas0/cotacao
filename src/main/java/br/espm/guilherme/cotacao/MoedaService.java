@@ -4,23 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class MoedaService {
-    private static final List<MoedaTO> moedas = new ArrayList<>();
+    private static final ArrayList<MoedaTOResponse> moedas = new ArrayList<>();
 
     static {
-        moedas.add(new MoedaTO(UUID.randomUUID().toString(), "Dolar", "U$", "USD"));
-        moedas.add(new MoedaTO(UUID.randomUUID().toString(), "Libra", "£", "LIB"));
+        moedas.add(new MoedaTOResponse(UUID.randomUUID().toString(), "Dolar", "U$", "USD"));
+        moedas.add(new MoedaTOResponse(UUID.randomUUID().toString(), "Libra", "£", "LIB"));
     }
 
-    public List<MoedaTO> list() {
+    public List<MoedaTOResponse> list() {
         return moedas;
     }
 
-    public void create(MoedaTO moeda) {
-        moedas.add(moeda);
+    public void create(MoedaTORequest moeda) {
+        MoedaTOResponse newMoeda = new MoedaTOResponse(UUID.randomUUID().toString(),
+                moeda.nome(), moeda.simbolo(), moeda.sigla());
+
+        moedas.add(newMoeda);
     }
 
     public void delete(String id) {
