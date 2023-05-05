@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,11 +20,13 @@ public class MoedaResouce {
     @Autowired
     public MoedaService moedaService;
 
+    @CrossOrigin // libera acesso para qualquer um
     @GetMapping("/moedas")
     public List<MoedaTOResponse> getMoedas() {
         return moedaService.list();
     }
 
+    @CrossOrigin // libera acesso para qualquer um
     @GetMapping("/moeda/{id}")
     public ResponseEntity<?> getMoeda(@PathVariable("id") String id) {
 
@@ -38,12 +41,14 @@ public class MoedaResouce {
         }
     }
 
+    @CrossOrigin // libera acesso para qualquer um
     @PostMapping("/moeda")
     public void postMoeda(@RequestBody MoedaTORequest newMoeda) {
         moedaService.create(newMoeda);
     }
 
-    @DeleteMapping("/moedas/{id}")
+    @CrossOrigin // libera acesso para qualquer um
+    @DeleteMapping("/moeda/{id}")
     public void deleteMoeda(@PathVariable("id") String id) {
         moedaService.delete(id);
     }
