@@ -3,35 +3,37 @@ package br.espm.guilherme.cotacao.api;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class MoedaService {
-    private static final ArrayList<MoedaTOResponse> moedas = new ArrayList<>();
 
-    static {
-        moedas.add(new MoedaTOResponse(UUID.randomUUID().toString(), "Dolar", "U$", "USD"));
-        moedas.add(new MoedaTOResponse(UUID.randomUUID().toString(), "Libra", "£", "LIB"));
-    }
+    @Autowired
+    private MoedaRepository repo;
 
     public List<MoedaTOResponse> list() {
+        List<MoedaTOResponse> moedas = new ArrayList<>();
+
+        repo.findAll().forEach(m -> {
+            moedas.add(new MoedaTOResponse(m.getId(), m.getNome(), m.getSimbolo(), m.getSigla()));
+        });
+
         return moedas;
     }
 
     public void create(MoedaTORequest moeda) {
-        MoedaTOResponse newMoeda = new MoedaTOResponse(UUID.randomUUID().toString(),
-                moeda.nome(), moeda.simbolo(), moeda.sigla());
-
-        moedas.add(newMoeda);
+        repo.save(new MoedaModel(moeda));
     }
 
     public void delete(String id) {
-        moedas.removeIf(moeda -> moeda.id().equals(id));
+        repo.deleteById(id);
     }
 
     public Optional<MoedaTOResponse> find(String id) {
-        return moedas.stream().filter((moeda) -> moeda.id().equals(id)).findFirst();
+        return repo.findById(id).map(m -> {
+            return new MoedaTOResponse(m.getId(), m.getNome(), m.getSimbolo(), m.getSigla());
+        });
     }
 }
