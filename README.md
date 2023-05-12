@@ -14,10 +14,10 @@
 
 ### API
 
-- Detalhamento de moeda: `GET /moeda/{id}`
-- Listagem de moedas: `GET /moedas`
-- Criação de moeda: `POST /moeda`
-- Remoção de moeda: `DELETE /moeda/{id}`
+- Detalhamento de moeda: `GET /api/moeda/{id}`
+- Listagem de moedas: `GET /api/moedas`
+- Criação de moeda: `POST /api/moeda`
+- Remoção de moeda: `DELETE /api/moeda/{id}`
 
 Coleção do insomnia disponível em: `cotacao_insomnia_collection.json`
 
