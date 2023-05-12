@@ -1,4 +1,4 @@
-package br.espm.guilherme.cotacao;
+package br.espm.guilherme.cotacao.api;
 
 public record MoedaTORequest(
         String nome,

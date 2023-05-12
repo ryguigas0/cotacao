@@ -8,6 +8,12 @@
 
 ## Rotas
 
+### Backoffice
+
+- Página de admin: `/backoffice`
+
+### API
+
 - Detalhamento de moeda: `GET /moeda/{id}`
 - Listagem de moedas: `GET /moedas`
 - Criação de moeda: `POST /moeda`

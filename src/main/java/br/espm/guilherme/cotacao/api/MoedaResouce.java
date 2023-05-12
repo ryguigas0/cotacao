@@ -1,4 +1,4 @@
-package br.espm.guilherme.cotacao;
+package br.espm.guilherme.cotacao.api;
 
 import java.util.List;
 import java.util.Optional;
