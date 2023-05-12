@@ -18,7 +18,7 @@ function moeda2HTML(moeda) {
 
 async function listarMoedas() {
     try {
-        const response = await fetch('http://localhost:8080/moedas', {
+        const response = await fetch('/api/moedas', {
             method: "get",
             headers: {
                 "Content-Type": "application/json"
@@ -48,7 +48,7 @@ async function deletarMoeda(idMoeda) {
     console.log("Deletar:", idMoeda)
 
     try {
-        const response = await fetch(`http://localhost:8080/moeda/${idMoeda}`, {
+        const response = await fetch(`/api/moeda/${idMoeda}`, {
             method: "delete",
             headers: {
                 "Content-Type": "application/json",
@@ -83,7 +83,7 @@ async function criarMoeda() {
     console.log("Criar moeda")
 
     try {
-        const response = await fetch(`http://localhost:8080/moeda`, {
+        const response = await fetch(`/api/moeda`, {
             method: "post",
             headers: {
                 "Content-Type": "application/json",
