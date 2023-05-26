@@ -1,4 +1,4 @@
-package br.espm.guilherme.cotacao.api;
+package br.espm.guilherme.cotacao.api.moeda;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

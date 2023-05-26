@@ -1,4 +1,4 @@
-package br.espm.guilherme.cotacao.api;
+package br.espm.guilherme.cotacao.api.moeda;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

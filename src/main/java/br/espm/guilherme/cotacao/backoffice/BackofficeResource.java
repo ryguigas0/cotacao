@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class BackofficeService {
+public class BackofficeResource {
 
     @GetMapping("/backoffice")
     public String showBackoffice(){
