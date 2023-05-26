@@ -36,4 +36,10 @@ public class MoedaService {
             return new MoedaTOResponse(m.getId(), m.getNome(), m.getSimbolo(), m.getSigla());
         });
     }
+
+    public MoedaTOResponse findBySigla(String sigla) {
+        return repo.findBySigla(sigla).map(m -> {
+            return new MoedaTOResponse(m.getId(), m.getNome(), m.getSimbolo(), m.getSigla());
+        }).orElse(null);
+    }
 }

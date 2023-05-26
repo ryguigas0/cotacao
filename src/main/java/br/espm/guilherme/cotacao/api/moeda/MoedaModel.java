@@ -6,9 +6,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "moeda")
+@NoArgsConstructor()
+@Getter
 public class MoedaModel {
 
     @Id
@@ -24,28 +28,9 @@ public class MoedaModel {
     @Column(name = "sigla")
     private String sigla;
 
-    public MoedaModel(){}
-
-    public MoedaModel(MoedaTORequest to){
+    public MoedaModel(MoedaTORequest to) {
         this.nome = to.nome();
         this.simbolo = to.simbolo();
         this.sigla = to.sigla();
     }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public String getSimbolo() {
-        return simbolo;
-    }
-
-    public String getSigla() {
-        return sigla;
-    }
-
 }
