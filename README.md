@@ -18,6 +18,8 @@
 - Listagem de moedas: `GET /api/moedas`
 - Criação de moeda: `POST /api/moeda`
 - Remoção de moeda: `DELETE /api/moeda/{id}`
+- Listagem cotações: `GET /api/cotacao/{siglaMoeda}?start-date=2023-05-24%2015%3A38`
+- Criar cotação: `GET /api/cotacao/criar`
 
 Coleção do insomnia disponível em: `cotacao_insomnia_collection.json`
 
